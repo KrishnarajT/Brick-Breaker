@@ -1,15 +1,16 @@
-
+const toggleCheckBox = document.getElementsByTagName('input')[0]
 const grid = document.querySelector('.grid')
 const user = document.createElement('div')
 const ball = document.createElement('div')
-let ballTimerId = null;
 
 // constants
 
-blockGap = 10;
-noOfBlocksPerLine = 10
-currentBallSpeedX = 4
-currentBallSpeedY = 4
+let blockGap = 10;
+let noOfBlocksPerLine = 10
+let currentBallSpeedX = 4
+let currentBallSpeedY = 4
+let usingMouse = true;
+let ballTimerId = null;
 
 const blockWidth = Math.floor((grid.clientWidth - (blockGap * noOfBlocksPerLine + 1) - 10) / noOfBlocksPerLine);
 const blockHeight = Math.floor(grid.clientHeight / 16);
@@ -81,26 +82,28 @@ function drawBall() {
 
 
 function moveUser(e) {
+    if (usingMouse) {
 
-    if (e.clientX - grid.getClientRects()[0]['x'] >= 0 && e.clientX - grid.getClientRects()[0]['x'] <= grid.clientWidth - blockWidth) {
-        currentUserPosition[0] = e.clientX - grid.getClientRects()[0]['x'];
-        drawUser();
+        if (e.clientX - grid.getClientRects()[0]['x'] >= 0 && e.clientX - grid.getClientRects()[0]['x'] <= grid.clientWidth - blockWidth) {
+            currentUserPosition[0] = e.clientX - grid.getClientRects()[0]['x'];
+            drawUser();
+        }
+    } else {
+        switch (e.key) {
+            case 'ArrowLeft':
+                if (currentUserPosition[0] > 10) {
+                    currentUserPosition[0] -= 10;
+                    drawUser();
+                }
+                break;
+            case 'ArrowRight':
+                if (currentUserPosition[0] + blockWidth + 10 < grid.clientWidth) {
+                    currentUserPosition[0] += 10;
+                    drawUser();
+                }
+                break;
+        }
     }
-
-    // switch (e.key) {
-    //     case 'ArrowLeft':
-    //         if (currentUserPosition[0] > 10) {
-    //             currentUserPosition[0] -= 10;
-    //             drawUser();
-    //         }
-    //         break;
-    //     case 'ArrowRight':
-    //         if (currentUserPosition[0] + blockWidth + 10 < grid.clientWidth) {
-    //             currentUserPosition[0] += 10;
-    //             drawUser();
-    //         }
-    //         break;
-    // }
 }
 
 function moveBall() {
@@ -163,8 +166,16 @@ function main() {
     grid.appendChild(ball)
 
     ballTimerId = setInterval(moveBall, 30)
-    // document.addEventListener('keydown', moveUser)
+    document.addEventListener('keydown', moveUser)
     document.addEventListener('mousemove', moveUser)
+    toggleCheckBox.addEventListener('change', () => {
+        if (toggleCheckBox.checked) {
+            usingMouse = false;
+        } else {
+            usingMouse = true;
+        }
+        console.log(usingMouse);
+    })
 }
 
 main();
