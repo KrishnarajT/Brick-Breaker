@@ -1,0 +1,85 @@
+/* Resets */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a:any-link {
+	text-decoration: none;
+	color: inherit;
+}
+
+/* Custom Fonts */
+@font-face {
+	font-family: 'Retro';
+	src: url(./fonts/Sabo-Regular.otf);
+}
+/* General */
+
+/* Blocks */
+body {
+	background-image: url(./video/mixkit-yellow-northern-lights-in-norway-4036-medium.mp4);
+	/* background-image: url(https://media.giphy.com/media/UYBDCJjwOd9Re/giphy.gif); */
+	background-size: cover;
+	color: whitesmoke;
+}
+video {
+    /* filter:blur(3px); */
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -100;
+}
+main {
+	display: flex;
+	flex-direction: column;
+}
+
+header {
+    color:rgb(199, 158, 252);
+	align-self: center;
+	margin: 1rem;
+	padding: 1rem;
+	font-size: 10vh;
+	font-family: 'Retro', sans-serif;
+}
+
+footer {
+	font-family: 'Retro', sans-serif;
+	position: fixed;
+	padding: 1rem;
+	margin: 1rem;
+	bottom: 0;
+	right: 0;
+	font-size: 3vh;
+}
+/* Classes */
+
+.grid-container {
+	align-self: center;
+	display: flex;
+	justify-content: center;
+	padding: 1rem;
+	position: relative;
+}
+
+.grid {
+	position: absolute;
+	width: 55vw;
+	height: 50vh;
+	border: solid 2px rgb(212, 194, 254);
+}
+
+.block {
+	position: absolute;
+	width: 100px;
+	height: 20px;
+	background-color: rgb(84, 153, 243);
+}
+
+/* Ids */
