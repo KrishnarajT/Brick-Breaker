@@ -57,7 +57,9 @@ footer {
 	bottom: 0;
 	right: 0;
 	font-size: 3vh;
+	text-align: right;
 }
+
 /* Classes */
 
 .grid-container {
@@ -87,12 +89,15 @@ footer {
 	width: 100px;
 	height: 20px;
 	background-color: rgb(206, 140, 228);
+	transition: all 0.1s;
+	transform: translate(0, 0);
 }
 
 .ball{
 	position: absolute;
-	width: 20px;
-	height: 20px;
+	background-color: green;
+	width: 1vh;
+	height: 1vh;
 	border-radius: 50%;
 	background-color: rgb(255, 255, 255);
 }
@@ -111,48 +116,58 @@ footer {
 }
 
 .toggle-switch {
-  display: inline-block;
-  background: rgb(225, 91, 91);
-  border-radius: 16px;
-  width: 58px;
-  height: 32px;
-  position: relative;
-  vertical-align: middle;
-  transition: background 0.25s;
+	display: inline-block;
+	background: rgb(225, 91, 91);
+	border-radius: 16px;
+	width: 58px;
+	height: 32px;
+	position: relative;
+	vertical-align: middle;
+	transition: background 0.25s;
 }
 .toggle-switch:before, .toggle-switch:after {
-  content: "";
+  	content: "";
 }
 .toggle-switch:before {
-  display: block;
-  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
-  border-radius: 50%;
-  /* box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25); */
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  transition: left 0.25s;
+	display: block;
+	background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+	border-radius: 50%;
+	/* box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25); */
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	transition: left 0.25s;
 }
 .toggle:hover .toggle-switch:before {
-  background: linear-gradient(to bottom, #fff 0%, #fff 100%);
-  /* box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5); */
+	background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+	/* box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5); */
 }
 .toggle-checkbox:checked + .toggle-switch {
-  background: #56c080;
+  	background: #56c080;
 }
 .toggle-checkbox:checked + .toggle-switch:before {
-  left: 30px;
+  	left: 30px;
 }
 
 .toggle-checkbox {
-  position: absolute;
-  visibility: hidden;
+  	position: absolute;
+  	visibility: hidden;
 }
 
 .toggle-label {
-  margin-left: 5px;
-  position: relative;
-  top: 2px;
+	margin-left: 5px;
+	position: relative;
+	top: 2px;
+}
+
+.comment{
+	position: fixed; 
+	bottom: 4rem;
+	left: 0;
+	font: 3vh 'Retro', sans-serif;
+	margin: 1rem;
+	padding: 1rem;
+
 }
