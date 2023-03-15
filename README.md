@@ -5,7 +5,7 @@ The classic Brick Breaker Game, in HTML, CSS and Js. It has always been one of m
 1. Clone the Repository
 2. Open the `index.html` file in your browser
 3. Play the Game
-4. Or just head over to `brick_breaker.surge.sh` and Play!
+4. Or just head over to [Its deployed Website!](http://brick_breaker.surge.sh) and Play!
 
 # Screenshot
 ![](screenshot.png)
